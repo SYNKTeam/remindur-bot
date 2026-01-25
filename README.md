@@ -36,7 +36,7 @@ r.remind TIME REASON
 /remind TIME REASON
 ```
 
-The time uses a `w` (weeks), `d` (days), `h` (hours), `m` (minutes), `s` (seconds).
+The time uses a `w` (weeks), `d` (days), `h` (hours), `m` (minutes), `s` (seconds) format.
 
 And yes, you can combine them if you want to.
 
