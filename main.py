@@ -110,6 +110,6 @@ async def remind(ctx: commands.Context, time: str, *, reason: str = None):
     
     except Exception as e:
         await ctx.send('Oops! There was an error running this command, please make sure you have followed the format for the time. You must provide a time such as "1d", "1w", etc.')
-        raise e # DEBUGGING
+        # raise e # this is for debugging, remove the "#" if the command doesn't work for more information.
 
 client.run(TOKEN) # start the bot with the provided token
