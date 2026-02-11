@@ -58,7 +58,7 @@ async def on_ready(): # after the bot has actually started
     print('Bot is now ready!')
 
 def parseInput(input: str) -> datetime.timedelta: # func to parse the time into usable format
-    time_regex = re.compile(r'(\d+)\s*([smhdw])')
+    time_regex = re.compile(r'(\d+)\s*([smhdw])') 
     matches = time_regex.findall(input.lower())
     
     delta = datetime.timedelta()
@@ -101,15 +101,15 @@ async def remind(ctx: commands.Context, time: str, *, reason: str = None):
             'reason': reason,
             'timeToRemind': remindTime.isoformat()
         }
-        reminders.append(reminder)
+        reminders.append(reminder) # add to the list of reminders
 
-        await writeFile(reminders)
+        await writeFile(reminders) # self explanatory, write to the reminders file
 
         timestamp = int(remindTime.timestamp())
-        await ctx.send(f'Reminder has been set for <t:{timestamp}:R> (<t:{timestamp}:F>) with a reason of: {reason}.')
+        await ctx.send(f'Reminder has been set for <t:{timestamp}:R> (<t:{timestamp}:F>) with a reason of: {reason}.') # confirm the reminder has been set
     
     except Exception as e:
-        await ctx.send('Oops! There was an error running this command, please make sure you have followed the format for the time. You must provide a time such as "1d", "1w", etc.')
-        # raise e # this is for debugging, remove the "#" if the command doesn't work for more information.
+        await ctx.send('Oops! There was an error running this command, please make sure you have followed the format for the time. You must provide a time such as "1d", "1w", etc.') # something fucked up and now you're gonna have to troubleshoot :D
+        # raise e // if something goes to shit, remove the "#" and this text to enable a more clearer log
 
 client.run(TOKEN) # start the bot with the provided token
